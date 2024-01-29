@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitterApi", "TwitterApi\TwitterApi.csproj", "{71F8877C-B139-47B4-9DCB-C68BF60F5772}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{077400EE-25E1-42EA-A448-32D16352DD1C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Services", "1-Services", "{74653CAB-045E-4F70-B857-6B1B1D591295}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Data", "2-Data", "{F8A45621-5384-424F-BD92-EE117E3BC257}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Business", "3-Business", "{AFEEF3A3-3A82-4E77-BD63-F48C17BCD6A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "99-Shared", "99-Shared", "{F0BAC42F-B93A-49FB-9B9E-003A28B4F823}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitterApi.Infrastructure", "TwitterApi.Infrastructure\TwitterApi.Infrastructure.csproj", "{3807C732-03E0-48B0-BF8F-0D0638E8DBCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitterApi.Application", "TwitterApi.Application\TwitterApi.Application.csproj", "{ABF5E392-4C90-49CE-92BD-84D2816B9B42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitterApi.Mappings", "TwitterApi.Mappings\TwitterApi.Mappings.csproj", "{D8DB303C-37F0-445C-AF95-BBF9126897F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71F8877C-B139-47B4-9DCB-C68BF60F5772}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71F8877C-B139-47B4-9DCB-C68BF60F5772}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71F8877C-B139-47B4-9DCB-C68BF60F5772}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71F8877C-B139-47B4-9DCB-C68BF60F5772}.Release|Any CPU.Build.0 = Release|Any CPU
+		{077400EE-25E1-42EA-A448-32D16352DD1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{077400EE-25E1-42EA-A448-32D16352DD1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{077400EE-25E1-42EA-A448-32D16352DD1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{077400EE-25E1-42EA-A448-32D16352DD1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3807C732-03E0-48B0-BF8F-0D0638E8DBCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3807C732-03E0-48B0-BF8F-0D0638E8DBCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3807C732-03E0-48B0-BF8F-0D0638E8DBCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3807C732-03E0-48B0-BF8F-0D0638E8DBCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABF5E392-4C90-49CE-92BD-84D2816B9B42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABF5E392-4C90-49CE-92BD-84D2816B9B42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABF5E392-4C90-49CE-92BD-84D2816B9B42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABF5E392-4C90-49CE-92BD-84D2816B9B42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8DB303C-37F0-445C-AF95-BBF9126897F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8DB303C-37F0-445C-AF95-BBF9126897F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8DB303C-37F0-445C-AF95-BBF9126897F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8DB303C-37F0-445C-AF95-BBF9126897F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{71F8877C-B139-47B4-9DCB-C68BF60F5772} = {74653CAB-045E-4F70-B857-6B1B1D591295}
+		{077400EE-25E1-42EA-A448-32D16352DD1C} = {F0BAC42F-B93A-49FB-9B9E-003A28B4F823}
+		{3807C732-03E0-48B0-BF8F-0D0638E8DBCA} = {F8A45621-5384-424F-BD92-EE117E3BC257}
+		{ABF5E392-4C90-49CE-92BD-84D2816B9B42} = {AFEEF3A3-3A82-4E77-BD63-F48C17BCD6A5}
+		{D8DB303C-37F0-445C-AF95-BBF9126897F6} = {AFEEF3A3-3A82-4E77-BD63-F48C17BCD6A5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6917F655-E383-44BB-B778-54B17325721D}
+	EndGlobalSection
+EndGlobal
