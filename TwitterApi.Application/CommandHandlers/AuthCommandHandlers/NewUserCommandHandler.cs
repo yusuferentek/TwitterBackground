@@ -1,7 +1,10 @@
 ﻿using MediatR;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using TwitterApi.Application.Commands.AuthCommands;
@@ -27,6 +30,7 @@ namespace TwitterApi.Application.CommandHandlers.AuthCommandHandlers
 
         public async Task<ServiceResult<int>> Handle(NewUserCommand request, CancellationToken cancellationToken)
         {
+            string profilePicUrl;
             if (_repository.GetAll().Any(x => x.Username == request.Username))
                 return new ServiceResult<int>() {
                     ResultType = Utils.Enums.ResultTypes.Failed,
@@ -38,7 +42,32 @@ namespace TwitterApi.Application.CommandHandlers.AuthCommandHandlers
                     ResultType = Utils.Enums.ResultTypes.Failed,
                     Message = SystemMessages.DuplicateEmail
                 };
+            if (request.ProfilePic.IsNullOrEmpty())
+            {
+				profilePicUrl = "default_avatar";
 
+			}
+            else
+            {
+				string ftpUrl = "ftp://ftp.sirv.com";
+				string fileName = request.Username + "_"  + "ProfilePic" ;
+				string address = ftpUrl + "/TwitterApi/" + fileName;
+				var ftpClient = (FtpWebRequest)FtpWebRequest.Create(address);
+				ftpClient.Credentials = new NetworkCredential("tekyusuferen23@gmail.com", "komo1125");
+				ftpClient.Method = WebRequestMethods.Ftp.UploadFile;
+				ftpClient.UseBinary = true;
+				ftpClient.KeepAlive = true;
+
+				Stream requestStream = ftpClient.GetRequestStream();
+				ftpClient.ContentLength = request.ProfilePic.Length;
+				requestStream.Write(request.ProfilePic, 0, request.ProfilePic.Length);
+				requestStream.Close();
+
+				var uploadResponse = (FtpWebResponse)ftpClient.GetResponse();
+				var value = uploadResponse.StatusDescription;
+				uploadResponse.Close();
+				profilePicUrl = fileName;
+			}
             var pass = (request.Username + request.Password).ToPass();
             var newUser = new User()
             {
@@ -48,8 +77,8 @@ namespace TwitterApi.Application.CommandHandlers.AuthCommandHandlers
                 CDate = DateTime.Now,
                 Phone = request.Phone,
                 Fullname = request.Fullname,
-                ProfilePic = "https://i0.wp.com/sbcf.fr/wp-content/uploads/2018/03/sbcf-default-avatar.png?ssl=1"
-            };
+                ProfilePic = profilePicUrl
+			};
             var cTran = await _repository.UnitOfWork.BeginTransactionAsync();
             var res = _repository.Add(newUser);
             await _repository.UnitOfWork.CommitTransactionAsync(cTran);
