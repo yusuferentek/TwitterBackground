@@ -53,7 +53,7 @@ namespace TwitterApi.Application.CommandHandlers.AuthCommandHandlers
 				string fileName = request.Username + "_"  + "ProfilePic" ;
 				string address = ftpUrl + "/TwitterApi/" + fileName;
 				var ftpClient = (FtpWebRequest)FtpWebRequest.Create(address);
-				ftpClient.Credentials = new NetworkCredential("tekyusuferen23@gmail.com", "komo1125");
+				ftpClient.Credentials = new NetworkCredential("*******", "******");
 				ftpClient.Method = WebRequestMethods.Ftp.UploadFile;
 				ftpClient.UseBinary = true;
 				ftpClient.KeepAlive = true;
